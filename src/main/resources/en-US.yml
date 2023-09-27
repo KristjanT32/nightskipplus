@@ -1,0 +1,45 @@
+languageName: "English (US)"
+
+commands:
+  vote:
+    player-only: "&cThis command requires a player."
+    inactive: "&cThere doesn't appear to be an active vote in your world. &eVoting starts when the night falls."
+
+    for: "&aVoted successfully: &a&lSKIP"
+    against: "&aVoted successfully: &c&lDO NOT SKIP"
+
+  forceskip:
+    none: "&cThe voting for skipping the night is not active right now."
+    skipped: "&aSuccessfully force-skipped the night."
+
+  setlanguage:
+    insuff: "&cPlease provide the language to switch the plugin to."
+    changed: "&ePlugin language switched to &b%lang%&e."
+    notfound: "&cThere are no localizations with language code &b%lang%&c."
+
+messages:
+
+  skipped-forced: "&b%by% &aforcefully skipped the night."
+
+  night-voting:
+
+    for: "IN FAVOUR"
+    against: "AGAINST"
+
+    header: "&eIt's night time! Would you like to &bskip the night&e?\n"
+    actionbar-timer: "&eVoting for skipping the night ends in: &b%timer%"
+    actionbar-timer-finals: "&eThe voting ends in: &c&l%timer%"
+    actionbar-done: "&eYou've voted %vote%&f - &eresults in &b%timer%"
+
+    results: "&eVotes in favour: &a%infavour% &f| &eVotes against: &c%against%"
+    ended: "&eThe voting has &lended&r&e."
+
+    skip-button:
+      text: "&2[&aSkip!&2]"
+      hover: "&aSkip the night!\n&7Click here to vote for skipping the night."
+    sleep-through:
+      text: "&4[&cDon't skip!&4]"
+      hover: "&cDon't skip!\n&7Click here to vote against skipping the night."
+
+    result-skipping: "&aThe results are in. &a&lWe're skipping the night!"
+    result-notskipping: "&aThe results are in. &a&lWe're &c&lnot&a&l skipping the night!"

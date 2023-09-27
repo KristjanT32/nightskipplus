@@ -1,0 +1,25 @@
+name: NightSkipPlus
+version: '${project.version}'
+main: krisapps.nightskipplus.NightSkipPlus
+api-version: '1.19'
+
+commands:
+  votefor:
+    description: "Vote for skipping the night."
+    usage: "/votefor [uuid/name]"
+  voteagainst:
+    description: "Vote against skipping the night."
+    usage: "/voteagainst [uuid/name]"
+  forceskip:
+    description: "Forcefully skip the night, ignoring the vote results."
+    usage: "/forceskip"
+    permission: nsplus.admin
+  setlanguage:
+    description: "Changes the plugin's language."
+    usage: "/setlanguage <langCode>"
+    permission: nsplus.admin
+
+permissions:
+  nsplus.admin:
+    default: op
+    description: "The permission required to use /forceskip."
