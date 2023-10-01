@@ -4,14 +4,10 @@ settings:
   language: "en-US"
 
 
-  # How big part of the server's online players have to vote **for** skipping the night
+  # How big part of the server's online players have to vote **in favour** of skipping the night
   # for it to be skipped?
-
-  # In percentages (ex: 0.5 => 50%)
+  # In percentages (ex: 0.5 => 50%, therefore if there's an even vote count, the night will be skipped)
   voting-minimum: 0.5
 
   # How much time (in seconds) do players have to vote for/against skipping the night?
   voting-duration: 30
-
-  # Ignore players with administrator privileges when calculating the percent?
-  ignore-op-when-voting: true

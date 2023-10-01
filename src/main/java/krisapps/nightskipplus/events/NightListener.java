@@ -123,6 +123,15 @@ public class NightListener implements Listener {
                     main.dataUtility.setVotingActive(world.getUID(), false);
                     main.saveData();
 
+                    int votesInFavour = main.dataUtility.getVotes(world.getUID(), false);
+                    int votesAgainst = main.dataUtility.getVotes(world.getUID(), true);
+                    int totalVotes = votesAgainst + votesInFavour;
+
+                    double percent_infavour = totalVotes > 0 ? (((double) votesInFavour / (double) totalVotes) * 100d) : 0;
+                    double percent_against = totalVotes > 0 ? (((double) votesAgainst / (double) totalVotes) * 100d) : 0;
+
+                    main.appendToLog("In favour: " + (int) percent_infavour + "| Against: " + (int) percent_against);
+                    main.appendToLog("Deciding what to do based on data: IN FAVOUR: " + votesInFavour + "| AGAINST: " + votesAgainst + "| TOTAL VOTES: " + totalVotes);
 
                     for (Player p : world.getPlayers()) {
                         main.messageUtility.sendActionbarMessage(p, main.localizationUtility.getLocalizedPhrase("messages.night-voting.ended"));
@@ -132,15 +141,14 @@ public class NightListener implements Listener {
                         main.messageUtility.sendMessage(p, main.localizationUtility.getLocalizedPhrase("messages.night-voting.results")
                                 .replaceAll("%infavour%", String.valueOf(main.dataUtility.getVotes(world.getUID(), false)))
                                 .replaceAll("%against%", String.valueOf(main.dataUtility.getVotes(world.getUID(), true)))
+                                .replaceAll("%percent_infavour%", totalVotes > 0 ? (int) percent_infavour + "%" : "0%")
+                                .replaceAll("%percent_against%", totalVotes > 0 ? (int) percent_against + "%" : "0%")
                         );
                     }
 
+                    if (votesInFavour > votesAgainst || ((double) votesInFavour / totalVotes) >= main.dataUtility.getRequiredVotePercentage()) {
 
-                    main.appendToLog("Deciding what to do based on data: IN FAVOUR: " + main.dataUtility.getVotes(world.getUID(), false) + "| AGAINST: " + main.dataUtility.getVotes(world.getUID(), true));
-
-                    if (((double) main.dataUtility.getVotes(world.getUID(), false) / world.getPlayers().size()) * 100 >= main.dataUtility.getRequiredVotePercentage()) {
                         // Skip night
-
                         main.appendToLog("[" + world.getName() + "]: Skipping the night");
 
                         main.getServer().getScheduler().runTask(main, () -> {

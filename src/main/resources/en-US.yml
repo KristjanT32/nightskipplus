@@ -31,7 +31,7 @@ messages:
     actionbar-timer-finals: "&eThe voting ends in: &c&l%timer%"
     actionbar-done: "&eYou've voted %vote%&f - &eresults in &b%timer%"
 
-    results: "&eVotes in favour: &a%infavour% &f| &eVotes against: &c%against%"
+    results: "&eVotes in favour: &a%infavour% &f(&a%percent_infavour%&f) &f| &eVotes against: &c%against% &f(&a%percent_against%&f)"
     ended: "&eThe voting has &lended&r&e."
 
     skip-button:
